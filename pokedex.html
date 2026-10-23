@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form id="form-busca">
+        <input type="text" id="nome">
+        <input type="submit">
+    </form>
+
+    <div id="resultado"></div>
+
+    <h2 id="nome"></h2>
+    <h3 id="tipo"></h3>
+    <script>
+
+        const busca = document.querySelector("#form-busca")
+        const campo = document.querySelector("#nome")
+        const resultado = document.querySelector("#resultado")
+
+        function buscarPokemon(nome) {
+            return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+            .then(resposta => resposta.json())
+            .then(dados => {
+                nome.innerText = dados.name
+                tipo.innerText = dados.type.map(t =>t.type.name).join(' | ')
+            })
+        .catch(erro)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // busca.addEventListener('ke', () => {
+
+        // })
+
+        // let pokemon = 'goodra';
+
+        // fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+        //     .then(resposta => resposta.json())
+        //     .then(dados => {
+        //         console.log(dados)
+        //         let nomePoke = dados['name']
+        //         let hp = dados['stats']
+
+        //         espacoNome.innerText = nomePoke
+        //     });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
