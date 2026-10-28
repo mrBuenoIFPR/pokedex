@@ -1,72 +1,140 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pokédex</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
 
-    <form id="form-busca">
-        <input type="text" id="nome">
-        <input type="submit">
-    </form>
+<body>  
+    <header>
+        <button id="anterior" type="button">◀</button>
 
-    <div id="resultado"></div>
+        <h1>Pokédex</h1>
 
-    <h2 id="nome"></h2>
-    <h3 id="tipo"></h3>
-    <script>
+        <form id="form-busca">
+            <input type="text" id="campo-busca" placeholder="Nome ou número...">
+            <button type="submit">Buscar</button>
+        </form>
 
-        const busca = document.querySelector("#form-busca")
-        const campo = document.querySelector("#nome")
-        const resultado = document.querySelector("#resultado")
+        <span id="numero-pokedex">Nº ---</span>
 
-        function buscarPokemon(nome) {
-            return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-            .then(resposta => resposta.json())
-            .then(dados => {
-                nome.innerText = dados.name
-                tipo.innerText = dados.type.map(t =>t.type.name).join(' | ')
-            })
-        .catch(erro)
-        }
+        <button id="proximo" type="button">▶</button>
+    </header>
 
+    <main>
+        <section id="cartao-pokemon">
 
+            <div id="identificacao">
+                <h2 id="nome-pokemon">Nome do Pokémon</h2>
+                <div id="tipos-pokemon">
+                </div>
+            </div>
 
-
-
+            <div id="area-imagem">
+                <img id="imagem-pokemon" src="" alt="Sprite do Pokémon">
+            </div>
 
 
+            <h3>Informações</h3>
+
+            <div class="informacoes-pokemon">
+                <p>Altura: <span id="altura-pokemon"></span></p>
+                <p>Peso: <span id="peso-pokemon"></span></p>
+            </div>
 
 
+            <section id="atributos">
+                <h3>Atributos</h3>
+
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Vida</span>
+                        <span id="vida">--</span>
+                    </div>
+
+                    <div class="barra">
+                        <div id="vida-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Ataque</span>
+                        <span id="ataque">--</span>
+                    </div>
+
+                    <div class="barra">
+                        <div id="ataque-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Defesa</span>
+                        <span id="defesa">--</span>
+                    </div>
+
+                    <div class="barra">
+                        <div id="defesa-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Ataque Especial</span>
+                        <span id="ataque-sp">--</span>
+                    </div>
+
+                    <div class="barra">
+                        <div id="ataque-sp-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
+
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Defesa Especial</span>
+                        <span id="defesa-sp">--</span>
+                    </div>
 
 
+                    <div class="barra">
+                        <div id="defesa-sp-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
 
+                <div class="atributo">
+                    <div class="atributo-info">
+                        <span>Velocidade</span>
+                        <span id="velocidade">--</span>
+                    </div>
 
-        // busca.addEventListener('ke', () => {
+                    <div class="barra">
+                        <div id="velocidade-barra" class="dentro-barra"></div>
+                    </div>
+                </div>
+            </section>
 
-        // })
+            <footer>
+                <button id="shiny" type="button" aria-label="Alternar Pokémon shiny">
+                    ☆
+                </button>
 
-        // let pokemon = 'goodra';
+                <button id="aleatorio" type="button">
+                    Pokémon aleatório
+                </button>
+            </footer>
 
-        // fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-        //     .then(resposta => resposta.json())
-        //     .then(dados => {
-        //         console.log(dados)
-        //         let nomePoke = dados['name']
-        //         let hp = dados['stats']
+        </section>
+    </main>
 
-        //         espacoNome.innerText = nomePoke
-        //     });
-    </script>
+    <script src="script.js"></script>
 
 </body>
+
 </html>
-
-
-
-
-
-
-
