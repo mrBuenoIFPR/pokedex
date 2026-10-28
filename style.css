@@ -1,0 +1,408 @@
+
+/*gerais*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 24px;
+    background-color: #183d78;
+    background-image: radial-gradient(#28569a 1px, transparent 1px);
+    background-size: 8px 8px;
+    color: #10284c;
+    font-family: "Courier New", monospace;
+}
+
+/*header*/
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    max-width: 850px;
+    margin: 0 auto 24px;
+    padding: 14px;
+
+    background-color: #a5d8f5;
+    border: 4px solid #10284c;
+    box-shadow: 5px 5px 0 #0b2145;
+}
+
+header h1 {
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header form {
+    display: flex;
+    gap: 6px;
+}
+
+header input {
+    width: 180px;
+    min-width: 0;
+    padding: 9px;
+
+    background-color: #eaf8ff;
+    border: 2px solid #10284c;
+    border-radius: 0;
+
+    color: #10284c;
+    font: inherit;
+}
+
+#numero-pokedex {
+    padding: 8px 10px;
+    background-color: #183d78;
+    border: 2px solid #10284c;
+    color: white;
+    font-weight: bold;
+}
+
+/*botoes*/
+
+button {
+    padding: 8px 12px;
+
+    background-color: #2878c8;
+    color: white;
+
+    border: 3px solid #10284c;
+    border-radius: 0;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #10284c;
+
+    transition:
+        transform 0.1s,
+        box-shadow 0.1s,
+        background-color 0.1s;
+}
+
+button:hover {
+    background-color: #439ce8;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid #f5d547;
+    outline-offset: 3px;
+}
+
+/*cartao principal*/
+
+#cartao-pokemon {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+        "identificacao identificacao"
+        "imagem titulo-info"
+        "imagem informacoes"
+        "atributos atributos"
+        "rodape rodape";
+
+    gap: 14px;
+
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 20px;
+
+    background-color: #a5d8f5;
+    border: 5px solid #10284c;
+    border-radius: 0;
+
+    box-shadow: 6px 6px 0 #0b2145, inset 0 0 0 3px #dff5ff;
+}
+
+/*pokemon*/
+
+#identificacao {
+    grid-area: identificacao;
+    padding: 12px;
+
+    background-color: #183d78;
+    border: 3px solid #10284c;
+    color: white;
+
+    text-align: center;
+}
+
+#nome-pokemon {
+    margin-bottom: 8px;
+    font-size: 27px;
+    text-transform: capitalize;
+    overflow-wrap: anywhere;
+}
+
+#tipos-pokemon {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tipo {
+    display: inline-block;
+    padding: 5px 10px;
+
+    border: 2px solid #10284c;
+    border-radius: 0;
+
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/*cores dos tipos*/
+
+.tipo-fire {
+    background-color: #d94343;
+}
+
+.tipo-water {
+    background-color: #2878c8;
+}
+
+.tipo-grass {
+    background-color: #25834a;
+}
+
+.tipo-electric {
+    background-color: #f5d547;
+    color: #202020;
+}
+
+.tipo-ice {
+    background-color: #76cfe0;
+    color: #10284c;
+}
+
+.tipo-fighting {
+    background-color: #a52d38;
+}
+
+.tipo-poison {
+    background-color: #8050ad;
+}
+
+.tipo-ground {
+    background-color: #aa8050;
+}
+
+.tipo-flying {
+    background-color: #778bd5;
+}
+
+.tipo-psychic {
+    background-color: #d64b91;
+}
+
+.tipo-bug {
+    background-color: #72952e;
+}
+
+.tipo-rock {
+    background-color: #857957;
+}
+
+.tipo-ghost {
+    background-color: #6554bd;
+}
+
+.tipo-dragon {
+    background-color: #4940a8;
+}
+
+.tipo-dark {
+    background-color: #454545;
+}
+
+.tipo-steel {
+    background-color: #829da3;
+    color: #10284c;
+}
+
+.tipo-fairy {
+    background-color: #df8fb4;
+    color: #10284c;
+}
+
+.tipo-normal {
+    background-color: #92926c;
+}
+
+/*foto pokemon*/
+
+#area-imagem {
+    grid-area: imagem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 0;
+    min-height: 230px;
+
+    background-color: #dff5ff;
+    border: 3px solid #10284c;
+
+    background-image:
+        linear-gradient(
+            0deg,
+            transparent 49%,
+            #c1e7f8 50%,
+            transparent 51%
+        );
+
+    background-size: 100% 8px;
+}
+
+#imagem-pokemon {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: 220px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+/*infos do pokemon*/
+
+#cartao-pokemon > h3 {
+    grid-area: titulo-info;
+    align-self: end;
+
+    margin: 0;
+    padding: 9px 10px;
+
+    background-color: #2878c8;
+    border: 3px solid #10284c;
+    color: white;
+
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.informacoes-pokemon {
+    grid-area: informacoes;
+    align-self: start;
+
+    padding: 12px;
+    background-color: #dff5ff;
+    border: 3px solid #10284c;
+}
+
+.informacoes-pokemon p {
+    margin: 7px 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/*status*/
+
+#atributos {
+    grid-area: atributos;
+    padding: 14px;
+
+    background-color: #dff5ff;
+    border: 3px solid #10284c;
+}
+
+#atributos h3 {
+    margin-bottom: 16px;
+    padding: 9px;
+
+    background-color: #2878c8;
+    border: 3px solid #10284c;
+    color: white;
+
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.atributo {
+    margin-bottom: 13px;
+}
+
+.atributo:last-child {
+    margin-bottom: 0;
+}
+
+.atributo-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.atributo-info span:first-child {
+    text-transform: uppercase;
+}
+
+.barra {
+    width: 100%;
+    height: 15px;
+
+    background-color: #b7cbd7;
+    border: 2px solid #10284c;
+    border-radius: 0;
+
+    overflow: hidden;
+}
+
+.dentro-barra {
+    width: 0%;
+    height: 100%;
+
+    background-color: #42b642;
+    transition:
+        width 0.4s ease,
+        background-color 0.3s ease;
+}
+
+/*footer e botoes do footer*/
+
+#cartao-pokemon footer {
+    grid-area: rodape;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding-top: 12px;
+    border-top: 3px solid #2878c8;
+}
+
+#cartao-pokemon footer button {
+    margin: 0;
+}
+
+#shiny {
+    min-width: 45px;
+    font-size: 20px;
+    color: #f5d547;
+}
